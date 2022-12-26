@@ -3,8 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
-from .models import Product,Category
-from .forms import ProductForm,CategoryForm
+from .models import Product,Category,ModifierGroup
+from .forms import ProductForm,CategoryForm,ModifierGroupForm
 
 
 class ProductList(ListView):
@@ -52,5 +52,35 @@ class CategoryDelete(LoginRequiredMixin, DeleteView):
     fields = '__all__'
     success_url = reverse_lazy('Categories')
     template_name = 'restaurant/delete_category.html'
+
+
+class MGList(ListView):
+    model = ModifierGroup
+    context_object_name = 'modifiergroups'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class MGCreate(LoginRequiredMixin, CreateView):
+    model = ModifierGroup
+    form_class = ModifierGroupForm 
+    success_url = reverse_lazy('modifiergroups')
+
+class MGUpdate(LoginRequiredMixin, UpdateView):
+    model = ModifierGroup
+    form_class = ModifierGroupForm 
+    success_url = reverse_lazy('modifiergroups')
+
+class MGDelete(LoginRequiredMixin, DeleteView):
+    model = ModifierGroup
+    fields = '__all__'
+    success_url = reverse_lazy('modifiergroups')
+    template_name = 'restaurant/delete_modifiergroup.html'
+
+
+
+
+
 
 
