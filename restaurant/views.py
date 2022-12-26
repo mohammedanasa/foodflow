@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from .models import Product
+from .forms import ProductForm
 
 
 class ProductList(ListView):
@@ -23,12 +24,14 @@ class ProductDetail(LoginRequiredMixin, DetailView):
 
 class ProductCreate(LoginRequiredMixin, CreateView):
     model = Product
-    fields = '__all__'
+    form_class = ProductForm 
     success_url = reverse_lazy('products')
+
+    
 
 class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = Product
-    fields = '__all__'
+    form_class = ProductForm 
     success_url = reverse_lazy('products')
 
 class ProductDelete(LoginRequiredMixin, DeleteView):
