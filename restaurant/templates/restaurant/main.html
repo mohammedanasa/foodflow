@@ -2019,7 +2019,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="{% url 'create-product'%}">
+												<a class="menu-link" href="{% url 'create-category'%}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -2031,7 +2031,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="{% url 'products'%}">
+												<a class="menu-link" href="{% url 'categories'%}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -6472,7 +6472,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-		<script src={% static "assets/plugins/custom/datatables/datatables.bundle.js" %}></script>
+		<script src='{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}'></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used by this page)-->
 		<script src={% static "assets/js/widgets.bundle.js" %}></script>
@@ -6488,6 +6488,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src={% static "assets/plugins/custom/formrepeater/formrepeater.bundle.js" %}></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used by this page)-->
+		<script src={% static 'assets/js/custom/apps/ecommerce/catalog/save-category.js'%}></script>
 		<script src={% static  "assets/js/custom/apps/ecommerce/catalog/save-product.js" %}></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
