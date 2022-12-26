@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProductList,ProductCreate,ProductUpdate,ProductDelete,CategoryCreate,CategoryList,CategoryUpdate,CategoryDelete,MGCreate,MGList,MGUpdate,MGDelete
+from .views import ProductList,ProductCreate,ProductUpdate,ProductDelete,CategoryCreate,CategoryList,CategoryUpdate,CategoryDelete,MGCreate,MGList,MGUpdate,MGDelete,ModifierList,ModifierCreate,ModifierDelete,ModifierUpdate
 urlpatterns = [
 
     path('products/', ProductList.as_view(), name='products'),
@@ -16,4 +16,9 @@ urlpatterns = [
     path('modifier-groups/create-modifier-group', MGCreate.as_view(), name='create-mg'),
     path('modifier-groups/update-modifier-group/<int:pk>/', MGUpdate.as_view(), name='update-mg'),
     path('modifier-groups/delete-modifier-groups/<int:pk>/', MGDelete.as_view(), name='delete-mg'),
+
+    path('modifiers/', ModifierList.as_view(), name='modifiers'),
+    path('modifiers/create-modifier', ModifierCreate.as_view(), name='create-modifier'),
+    path('modifiers/update-modifier/<int:pk>/', ModifierUpdate.as_view(), name='update-modifier'),
+    path('modifiers/delete-modifier/<int:pk>/', ModifierDelete.as_view(), name='delete-modifier'),
 ]

@@ -16,7 +16,7 @@
                     <!--begin::Page title-->
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
-                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Add Product</h1>
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Add Modifier</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -31,7 +31,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">Products</li>
+                            <li class="breadcrumb-item text-muted">Modifiers</li>
                             <!--end::Item-->
                             <!--begin::Item-->
                             <li class="breadcrumb-item">
@@ -200,7 +200,7 @@
                                     </div>
                                     <!--end::Image input-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+                                    <div class="text-muted fs-7">Set the modifier thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Card body-->
@@ -232,7 +232,7 @@
                                     </select>
                                     <!--end::Select2-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">Set the product status.</div>
+                                    <div class="text-muted fs-7">Set the modifier status.</div>
                                     <!--end::Description-->
                                     <!--begin::Datepicker-->
                                     <div class="d-none mt-10">
@@ -250,44 +250,20 @@
                                 <div class="card-header">
                                     <!--begin::Card title-->
                                     <div class="card-title">
-                                        <h2>Product Details</h2>
+                                        <h2>Modifier Details</h2>
                                     </div>
                                     <!--end::Card title-->
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    
-                                    <!--begin::Input group-->
-                                    <!--begin::Label-->
-                                    <label class="form-label">Categories</label>
-                                    <!--end::Label-->
-                                    <!--begin::Select2-->
-                                    {{form.category}}
-                                    <!--end::Select2-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fs-7 mb-7">Add product to a category.</div>
-                                    <!--end::Description-->
-                                    <!--end::Input group-->
-                                    <!--begin::Button-->
-                                    <a href="../../demo1/dist/apps/ecommerce/catalog/add-category.html" class="btn btn-light-primary btn-sm mb-10">
-                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor" />
-                                            <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->Create new category</a>
-                                    <!--end::Button-->
-
                                     <label class="form-label">Modifier Groups</label>
                                     <!--end::Label-->
                                     <!--begin::Select2-->
                                     {{form.modifier_group}}
                                     <!--end::Select2-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7 mb-7">Add product to a modifier group</div>
+                                    <div class="text-muted fs-7 mb-7">Add modifier to a modifier group</div>
                                     <!--end::Description-->
                                     <!--end::Input group-->
                                     <!--begin::Button-->
@@ -301,38 +277,11 @@
                                     </span>
                                     <!--end::Svg Icon-->Create new modifier group</a>
                                     <!--end::Button-->
-                                    <!--begin::Input group-->
-                                    <!--begin::Label-->
-                                    <label class="form-label d-block">Tags</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input id="kt_ecommerce_add_product_tags" name="kt_ecommerce_add_product_tags" class="form-control mb-2" value="" />
-                                    <!--end::Input-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fs-7">Add tags to a product.</div>
-                                    <!--end::Description-->
-                                    <!--end::Input group-->
                                 </div>
                                 <!--end::Card body-->
                             </div>
                             <!--end::Category & tags-->
                             <!--begin::Weekly sales-->
-                            <div class="card card-flush py-4">
-                                <!--begin::Card header-->
-                                <div class="card-header">
-                                    <!--begin::Card title-->
-                                    <div class="card-title">
-                                        <h2>Weekly Sales</h2>
-                                    </div>
-                                    <!--end::Card title-->
-                                </div>
-                                <!--end::Card header-->
-                                <!--begin::Card body-->
-                                <div class="card-body pt-0">
-                                    <span class="text-muted">No data available. Sales data will begin capturing once product has been published.</span>
-                                </div>
-                                <!--end::Card body-->
-                            </div>
                             <!--end::Weekly sales-->
                             <!--begin::Template settings-->
                             <!--end::Template settings-->
@@ -370,13 +319,13 @@
                                                 <!--begin::Input group-->
                                                 <div class="mb-10 fv-row">
                                                     <!--begin::Label-->
-                                                    <label class="required form-label">Product Name</label>
+                                                    <label class="required form-label">Modifier Name</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
                                                     {{form.name}}
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+                                                    <div class="text-muted fs-7">A modifier name is required and recommended to be unique.</div>
                                                     <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -389,7 +338,7 @@
                                                     {{form.description}}
                                                     <!--end::Editor-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Set a description to the product for better visibility.</div>
+                                                    <div class="text-muted fs-7">Set a description to the modifier for better visibility.</div>
                                                     <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -398,42 +347,6 @@
                                         </div>
                                         <!--end::General options-->
                                         <!--begin::Media-->
-                                        <div class="card card-flush py-4">
-                                            <!--begin::Card header-->
-                                            <div class="card-header">
-                                                <div class="card-title">
-                                                    <h2>Media</h2>
-                                                </div>
-                                            </div>
-                                            <!--end::Card header-->
-                                            <!--begin::Card body-->
-                                            <div class="card-body pt-0">
-                                                <!--begin::Input group-->
-                                                <div class="fv-row mb-2">
-                                                    <!--begin::Dropzone-->
-                                                    <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                        <!--begin::Message-->
-                                                        <div class="dz-message needsclick">
-                                                            <!--begin::Icon-->
-                                                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
-                                                            <!--end::Icon-->
-                                                            <!--begin::Info-->
-                                                            <div class="ms-4">
-                                                                <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-                                                                <span class="fs-7 fw-semibold text-gray-400">Upload up to 10 files</span>
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Dropzone-->
-                                                </div>
-                                                <!--end::Input group-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Set the product media gallery.</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Card header-->
-                                        </div>
                                         <!--end::Media-->
                                         <!--begin::Pricing-->
                                         <div class="card card-flush py-4">
@@ -455,7 +368,7 @@
                                                     {{ form.price}}
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Set the product price.</div>
+                                                    <div class="text-muted fs-7">Set the modifier price.</div>
                                                     <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -573,7 +486,7 @@
                                                         </select>
                                                         <!--end::Select2-->
                                                         <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Set the product tax class.</div>
+                                                        <div class="text-muted fs-7">Set the modifier tax class.</div>
                                                         <!--end::Description-->
                                                     </div>
                                                     <!--end::Input group-->
@@ -586,7 +499,7 @@
                                                         <input type="text" class="form-control mb-2" value="" />
                                                         <!--end::Input-->
                                                         <!--begin::Description-->
-                                                        <div class="text-muted fs-7">Set the product VAT about.</div>
+                                                        <div class="text-muted fs-7">Set the modifier VAT about.</div>
                                                         <!--end::Description-->
                                                     </div>
                                                     <!--end::Input group-->
@@ -605,7 +518,7 @@
                             <!--end::Tab content-->
                             <div class="d-flex justify-content-end">
                                 <!--begin::Button-->
-                                <a href="{% url 'products' %}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+                                <a href="{% url 'modifiers'%}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="" class="btn btn-primary">Save Changes

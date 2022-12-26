@@ -3,10 +3,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
-from .models import Product,Category,ModifierGroup
-from .forms import ProductForm,CategoryForm,ModifierGroupForm
+from .models import Product,Category,ModifierGroup,Modifier
+from .forms import ProductForm,CategoryForm,ModifierGroupForm,ModifierForm
 
-
+#Product Views
 class ProductList(ListView):
     model = Product
     context_object_name = 'products'
@@ -28,7 +28,7 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('products')
     template_name = 'restaurant/delete_product.html'
 
-
+#Category Views
 class CategoryList(ListView):
     model = Category
     context_object_name = 'categories'
@@ -53,7 +53,7 @@ class CategoryDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('Categories')
     template_name = 'restaurant/delete_category.html'
 
-
+#ModifierGroup Views
 class MGList(ListView):
     model = ModifierGroup
     context_object_name = 'modifiergroups'
@@ -78,6 +78,30 @@ class MGDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('modifiergroups')
     template_name = 'restaurant/delete_modifiergroup.html'
 
+#Modifiers Views
+class ModifierList(ListView):
+    model = Modifier
+    context_object_name = 'modifiers'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class ModifierCreate(LoginRequiredMixin, CreateView):
+    model = Modifier
+    form_class = ModifierForm 
+    success_url = reverse_lazy('modifiers')
+
+class ModifierUpdate(LoginRequiredMixin, UpdateView):
+    model = Modifier
+    form_class = ModifierForm 
+    success_url = reverse_lazy('modifiers')
+
+class ModifierDelete(LoginRequiredMixin, DeleteView):
+    model = Modifier
+    fields = '__all__'
+    success_url = reverse_lazy('modifiers')
+    template_name = 'restaurant/delete_modifier.html'
 
 
 
