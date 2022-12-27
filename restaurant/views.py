@@ -86,11 +86,13 @@ class MGCreate(LoginRequiredMixin, CreateView):
     model = ModifierGroup
     form_class = ModifierGroupForm 
     success_url = reverse_lazy('modifiergroups')
+    
 
 class MGUpdate(LoginRequiredMixin, UpdateView):
     model = ModifierGroup
     form_class = ModifierGroupForm 
     success_url = reverse_lazy('modifiergroups')
+    
 
 class MGDelete(LoginRequiredMixin, DeleteView):
     model = ModifierGroup

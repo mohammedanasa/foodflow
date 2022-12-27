@@ -1,4 +1,5 @@
 {% extends 'restaurant/main.html' %}
+{% load static %}
 {% block title %}All Categories{% endblock %}
 {% block content %}
 
@@ -148,7 +149,7 @@
         <div id="kt_app_content" class="app-content flex-column-fluid">
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-xxl">
-                <form id="" class="form d-flex flex-column flex-lg-row" data-kt-redirect="" method='POST'>
+                <form id="" class="form d-flex flex-column flex-lg-row" data-kt-redirect="" method='POST' enctype="multipart/form-data">
                     {% csrf_token %}
                     <!--begin::Aside column-->
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -167,9 +168,10 @@
                             <div class="card-body text-center pt-0">
                                 <!--begin::Image input-->
                                 <!--begin::Image input-->
+                                {% if category.image %}
                                 <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-150px h-150px" style="background-image: url(assets/media//stock/ecommerce/123.gif)"></div>
+                                    <div class="image-input-wrapper w-150px h-150px" style="background-image: url({{category.image.url}})"></div>
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
                                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -193,7 +195,46 @@
                                     </span>
                                     <!--end::Remove-->
                                 </div>
+                                <br>
+                                    <br>
+                                    {{form.image}}
+                                    <br>
+                                    <br>
                                 <!--end::Image input-->
+                                {% else %}
+                                <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                                    <!--begin::Preview existing avatar-->
+                                    <div class="image-input-wrapper w-150px h-150px" style="background-image: url({% static 'assets/media/svg/files/blank-image.svg' %})"></div>
+                                    <!--end::Preview existing avatar-->
+                                    <!--begin::Label-->
+                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                        <!--begin::Icon-->
+                                        <i class="bi bi-pencil-fill fs-7"></i>
+                                        <!--end::Icon-->
+                                        <!--begin::Inputs-->
+                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                        <input type="hidden" name="avatar_remove" />
+                                        <!--end::Inputs-->
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Cancel-->
+                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                        <i class="bi bi-x fs-2"></i>
+                                    </span>
+                                    <!--end::Cancel-->
+                                    <!--begin::Remove-->
+                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                        <i class="bi bi-x fs-2"></i>
+                                    </span>
+                                    <!--end::Remove-->
+                                </div>
+                                <br>
+                                    <br>
+                                    {{form.image}}
+                                    <br>
+                                    <br>
+                                <!--end::Image input-->
+                                {% endif %}
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the category thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
                                 <!--end::Description-->

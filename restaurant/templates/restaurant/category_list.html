@@ -1,4 +1,5 @@
 {% extends 'restaurant/main.html' %}
+{% load static%}
 {% block title %}All Categories{% endblock %}
 {% block content %}
 
@@ -215,8 +216,12 @@
                                     <td>
                                         <div class="d-flex">
                                             <!--begin::Thumbnail-->
-                                            <a href="../../demo1/dist/apps/ecommerce/catalog/edit-category.html" class="symbol symbol-50px">
-                                                <span class="symbol-label" style="background-image:url(assets/media//stock/ecommerce/68.gif);"></span>
+                                            <a href="{% url 'update-category' category.id %}" class="symbol symbol-50px">
+                                                {% if category.image %}
+                                                <span class="symbol-label" style="background-image:url({{category.image.url}});"></span>
+                                                {% else %}
+                                                <span class="symbol-label" style="background-image:url({% static 'assets/media/svg/files/blank-image.svg'%});"></span>
+                                                {% endif %}
                                             </a>
                                             <!--end::Thumbnail-->
                                             <div class="ms-5">

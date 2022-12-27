@@ -1,4 +1,5 @@
 {% extends 'restaurant/main.html' %}
+{% load static %}
 {% block title %}All Modifiers{% endblock %}
 {% block content %}
 
@@ -231,7 +232,11 @@
                                         <div class="d-flex align-items-center">
                                             <!--begin::Thumbnail-->
                                             <a href="{% url 'update-modifier' modifier.id %}" class="symbol symbol-50px">
-                                                <span class="symbol-label" style="background-image:url(assets/media//stock/ecommerce/1.gif);"></span>
+                                                {% if modifier.image %}
+                                                <span class="symbol-label" style="background-image:url({{modifier.image.url}});"></span>
+                                                {% else %}
+                                                <span class="symbol-label" style="background-image:url({% static 'assets/media/svg/files/blank-image.svg'%});"></span>
+                                                {% endif %}
                                             </a>
                                             <!--end::Thumbnail-->
                                             <div class="ms-5">
