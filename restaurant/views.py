@@ -2,12 +2,32 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from django.urls import reverse_lazy
 from .models import Product,Category,ModifierGroup,Modifier
 from .forms import ProductForm,CategoryForm,ModifierGroupForm,ModifierForm
 
+#UserAuthentication
+def login_user(request):
+	if request.method == "POST":
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(request, username=username, password=password)
+		if user is not None:
+			login(request, user)
+			return redirect('products')
+		else:
+			messages.success(request, ("Your username/password is incorrect."))	
+			return redirect('login')	
+
+
+	else:
+		return render(request, 'restaurant/sign-in.html', {})
+
+
 #Product Views
-class ProductList(ListView):
+class ProductList(LoginRequiredMixin,ListView):
     model = Product
     context_object_name = 'products'
 
@@ -29,7 +49,7 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
     template_name = 'restaurant/delete_product.html'
 
 #Category Views
-class CategoryList(ListView):
+class CategoryList(LoginRequiredMixin,ListView):
     model = Category
     context_object_name = 'categories'
 
@@ -54,7 +74,7 @@ class CategoryDelete(LoginRequiredMixin, DeleteView):
     template_name = 'restaurant/delete_category.html'
 
 #ModifierGroup Views
-class MGList(ListView):
+class MGList(LoginRequiredMixin,ListView):
     model = ModifierGroup
     context_object_name = 'modifiergroups'
 
@@ -79,7 +99,7 @@ class MGDelete(LoginRequiredMixin, DeleteView):
     template_name = 'restaurant/delete_modifiergroup.html'
 
 #Modifiers Views
-class ModifierList(ListView):
+class ModifierList(LoginRequiredMixin,ListView):
     model = Modifier
     context_object_name = 'modifiers'
 

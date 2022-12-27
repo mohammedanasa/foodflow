@@ -1,7 +1,14 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from .views import ProductList,ProductCreate,ProductUpdate,ProductDelete,CategoryCreate,CategoryList,CategoryUpdate,CategoryDelete,MGCreate,MGList,MGUpdate,MGDelete,ModifierList,ModifierCreate,ModifierDelete,ModifierUpdate
+from . import views
+from .views import login_user
 urlpatterns = [
 
+    path('login/', views.login_user, name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+
+    path('', ProductList.as_view(), name='products'),
     path('products/', ProductList.as_view(), name='products'),
     path('products/create-product', ProductCreate.as_view(), name='create-product'),
     path('products/update-product/<int:pk>/', ProductUpdate.as_view(), name='update-product'),

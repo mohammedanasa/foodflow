@@ -1872,7 +1872,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="../../demo1/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
+											<a href="{% url 'logout' %}" class="menu-link px-5">Sign Out</a>
 										</div>
 										<!--end::Menu item-->
 									</div>
@@ -1910,8 +1910,8 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
 							<a href="../../demo1/dist/index.html">
-								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default" />
-								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
+								<img alt="Logo" src={% static 'assets/media/logos/foodflow.png'%} class="h-25px app-sidebar-logo-default" />
+								<img alt="Logo" src={% static 'assets/media/logos/default-small.svg'%} class="h-20px app-sidebar-logo-minimize" />
 							</a>
 							<!--end::Logo image-->
 							<!--begin::Sidebar toggle-->
@@ -5930,7 +5930,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Heading-->
 						<!--begin::Google Contacts Invite-->
 						<div class="btn btn-light-primary fw-bold w-100 mb-8">
-						<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
+						<img alt="Logo" src="{% static 'assets/media/svg/brand-logos/google-icon.svg'%}" class="h-20px me-3" />Invite Gmail Contacts</div>
 						<!--end::Google Contacts Invite-->
 						<!--begin::Separator-->
 						<div class="separator d-flex flex-center mb-8">
