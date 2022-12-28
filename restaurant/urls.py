@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from .views import ProductList,ProductCreate,ProductUpdate,ProductDelete,CategoryCreate,CategoryList,CategoryUpdate,CategoryDelete,MGCreate,MGList,MGUpdate,MGDelete,ModifierList,ModifierCreate,ModifierDelete,ModifierUpdate
+from .views import ProductList,ProductCreate,ProductUpdate,ProductDelete,CategoryCreate,CategoryList,CategoryUpdate,CategoryDelete,MGCreate,MGList,MGUpdate,MGDelete,ModifierList,ModifierCreate,ModifierDelete,ModifierUpdate,RestaurantList,RestaurantCreate,RestaurantUpdate,MenuList,MenuCreate,MenuUpdate
 from . import views
 from .views import login_user
 urlpatterns = [
@@ -28,4 +28,12 @@ urlpatterns = [
     path('modifiers/create-modifier', ModifierCreate.as_view(), name='create-modifier'),
     path('modifiers/update-modifier/<int:pk>/', ModifierUpdate.as_view(), name='update-modifier'),
     path('modifiers/delete-modifier/<int:pk>/', ModifierDelete.as_view(), name='delete-modifier'),
+    
+    path('restaurants/', RestaurantList.as_view(), name='restaurants'),
+    path('restaurants/create-restaurant', RestaurantCreate.as_view(), name='create-restaurant'),
+    path('restaurants/update-restaurant/<int:pk>/', RestaurantUpdate.as_view(), name='update-restaurant'),
+
+    path('menu/', MenuList.as_view(), name='menu'),
+    path('menu/create-menu', MenuCreate.as_view(), name='create-menu'),
+    path('menu/update-menu/<int:pk>/', MenuUpdate.as_view(), name='update-menu'),
 ]

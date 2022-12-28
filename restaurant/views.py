@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.urls import reverse_lazy
-from .models import Product,Category,ModifierGroup,Modifier
+from .models import Product,Category,ModifierGroup,Modifier,Restaurant,Menu,Address
 from .forms import ProductForm,CategoryForm,ModifierGroupForm,ModifierForm
 
 #UserAuthentication
@@ -126,7 +126,44 @@ class ModifierDelete(LoginRequiredMixin, DeleteView):
     template_name = 'restaurant/delete_modifier.html'
 
 
+#Restaurant View
+class RestaurantList(LoginRequiredMixin,ListView):
+    model = Restaurant
+    context_object_name = 'restaurants'
+    template_name = 'restaurant/locations/locations.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+class RestaurantCreate(LoginRequiredMixin, CreateView):
+    model = Restaurant
+    fields = '__all__'
+    success_url = reverse_lazy('restaurants')
+    template_name = 'restaurant/locations/create-location.html'
+class RestaurantUpdate(LoginRequiredMixin, UpdateView):
+    model = Restaurant
+    success_url = reverse_lazy('modifiers')
+    fields = '__all__'
+    template_name = 'restaurant/locations/create-location.html'
+
+#Menu
 
 
+class MenuList(LoginRequiredMixin,ListView):
+    model = Menu
+    context_object_name = 'menus'
+    template_name = 'restaurant/menu/menulist.html'
 
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+class MenuCreate(LoginRequiredMixin, CreateView):
+    model = Menu
+    fields = '__all__'
+    success_url = reverse_lazy('menus')
+    template_name = 'restaurant/menu/create-menu.html'
+class MenuUpdate(LoginRequiredMixin, UpdateView):
+    model = Menu
+    success_url = reverse_lazy('menus')
+    fields = '__all__'
+    template_name = 'restaurant/menu/create-menu.html'
